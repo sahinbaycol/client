@@ -1,38 +1,455 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebarContainer {
   display: flex;
   flex-direction: column;
+  border-right: 1px solid rgb(238, 234, 234);
+  justify-content: space-between;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+body {
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.sidebartopcontainer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.sidebarbottomcontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sidebarTopButtons {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: white;
+  border: none;
+  margin-top: 15px;
+
+}
+
+.homeIcon{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: none;
+}
+
+.homeTaskIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.homeTaskText {
+  font-family: sans-serif,Arial, ;
+  font-size: 13px;
+  font-weight: bolder;
+  margin-left: 15px;
+}
+
+
+p {
+  margin: 0;
+}
+
+.addtaskbutton {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 40px;
+  margin-left: 20px;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  
+}
+.addtaskimg {
+  margin-left: 15px;
+  width: 15px;
+  height: 15px;
+  
+}
+
+.addtasktext {
+  color: white;
+  
+  background-color: black;
+  
+  margin-left: 20px;
+  
+}
+
+.profilecardimg {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.profilecardcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.profilecardbutton {
+  background-color: white;
+  border: none;
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+
+.pp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  
+}
+
+.ppcardmiddle {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  margin-left: 15px;
+}
+
+.ppcardmiddletext1 {
+  font-family: sans-serif,Arial, ;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+
+.ppcardmiddletext2 {
+  font-family: sans-serif,Arial, ;
+  font-weight: bolder;
+  font-size: 11px;
+  color: grey;
+}
+
+.contentbutton1 {
+  background-color:white;
+  padding: 10px 12px;
+  border-right: 1px solid rgb(238, 234, 234);
+  border-top: 1px solid rgb(238, 234, 234);
+  border-left: 1px solid rgb(238, 234, 234);
+  border-bottom: 1px solid rgb(238, 234, 234);
+  border-radius: 6px 0 0 6px;
+
+}
+
+.contentbutton23 {
+  background-color: white;
+  padding: 10px 12px;
+  border-left: 0;
+  border-right: 1px solid rgb(238, 234, 234);
+  border-top: 1px solid rgb(238, 234, 234);
+  border-bottom: 1px solid rgb(238, 234, 234);
+}
+
+.contentbutton4 {
+  background-color: white;
+  padding: 10px 12px;
+  border-left: 0;
+  border-right: 1px solid rgb(238, 234, 234);
+  border-top: 1px solid rgb(238, 234, 234);
+  border-bottom: 1px solid rgb(238, 234, 234);
+  border-radius: 0 6px 6px 0;
+}
+
+.contenContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.contentbuttoncontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.greetingtext {
+  font-family: sans-serif,Arial ;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.cardcontainer{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  
+  
+}
+
+.contentcard {
+  
+  margin: 20px 20px 20px 20px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  background-color: white;
+  
+  opacity: 0.7;
+}
+
+.cardheader {
+  font-family: sans-serif,Arial ;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 20px 0 0 10px;
+}
+
+.cardsubheader {
+  font-family: sans-serif,Arial ;
+  font-weight: bold;
+  font-size: 12px;
+  color: gray;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.cardtop {
+  display: flex;
+  flex-direction: row;
+  align-items:center ;
+  justify-content: space-between;
+  box-shadow:  0px 9px 29px 7px rgba(0,0,0,0.75);
+  padding:20px 20px 30px 20px;
+  border-radius: 6px;
+}
+
+.carddescription {
+  font-family: sans-serif,Arial ;
+  font-weight: bold;
+  font-size: 12px;
+  color: gray;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.cardbuttonimg {
+  width: 25px;
+  height: 25px;
+}
+
+.cardbutton {
+  border: none;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  margin: 20px 15px 15px 15px;
+  border-radius: 6px;
+}
+
+.cardbuttontext {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.buttoncontainer {
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardcondition {
+  width: 30px;
+  height: 30x;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.searchcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  margin-top: 15px;
+  margin-left: 8px;
+}
+
+.searchinput {
+  border-radius: 6px;
+  height: 20px;
+  margin-left: 12px;
+  border: 1px solid rgb(151, 151, 151);
+}
+
+.searchinput::placeholder {
+  text-align: center;
+}
+
+.sidebarcitycolumn {
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: space-between;
+  background-color:white;
+  padding: 10px 12px;
+  border: 1px solid rgb(238, 234, 234);
+  margin-top: 15px;
+  border-radius: 8px;
+ margin-left: 20px;
+ margin-right: 10px;
+}
+
+
+
+.tempcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tempcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.temptext {
+  margin-top: 10px;
+  font-family: Arial,  sans-serif;
+  margin-right: 15px;
+  font-size:20px;
+  font-weight: normal;
+}
+
+.temp-date{
+  margin-top: 10px;
+  font-family: Arial,  sans-serif;
+  width: 120px;
+  font-size: 15px;
+}
+
+
+.sidebarcity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgb(184, 182, 182);
+  padding-bottom: 5px;
+}
+
+.sidebarsearchresultcontainer {
+  display: flex;
+}
+
+
+.temp-date-container {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid grey;
+  padding-left: 20px;
+}
+
+.searchbar {
+  padding-left: 20px;
+  height: 40px;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  opacity: 0.7;
+  box-shadow: 0px 6px 12px 3px rgba(0,0,0,0.75);
+}
+
+.searchbar:focus{
+  outline: none;
+}
+
+
+
+
+.search-button {
+  border: 1px solid grey;
+  width: 100px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: rgba(163, 214, 231, 0.808);
+  margin-left: 10px;
+}
+
+.search-button:hover {
+  background-color: rgba(72, 194, 235, 0.808);
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.select-day-buttons-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.select-day-buttons {
+  border: 1px solid grey;
+  width: 150px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: rgba(163, 214, 231, 0.808);
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.select-day-buttons:hover {
+  background-color:rgba(72, 194, 235, 0.808) ;
+}
+
+.exact-date {
+  font-family: Arial, sans-serif;
+  margin-right: 15px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.exact-date-container {
+  display: flex;
+  flex-direction: row;
+  
 }

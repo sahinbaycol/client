@@ -1,15 +1,12 @@
-/* eslint-disable */
-import { useEffect, useState } from "react";
-import "./App.css";
+import React from "react";
+import CardComponent from "./CardComponent";
 import moment from "moment";
-import clear from "./pics/clear.jpg"
-import clouds from "./pics/clouds.jpg"
-import axios from "axios";
-import ContainerComponent from "./components/ContainerComponent";
+import clear from "../pics/clear.jpg"
+import { useState, useLayoutEffect } from "react";
 
+function CardContainer({  }) {
 
-function App() {
-
+ 
 
   const api = {
     key: "fc8f721bdcd4a0a04de581cf1e14eefc",
@@ -21,28 +18,6 @@ function App() {
   var exactdate = moment();
   var date = exactdate.format("YYYY-MM-DD");
   var dayofdate = exactdate.format("dddd");
-
-
-  const STYLES={
-    active:{
-      backgroundColor:"blue",
-      color:"black"
-    },
-    inactive:{
-      backgroundColor:"black",
-      color:"blue"
-    }
-  }
-
-
-  const [filteredButton, setFilterButton] =useState(false)
-
-  const filterHandler=(e)=> {
-    
-    setFilterButton(!filteredButton)
-
-  }
-
 
   const daysofweek = [
     "Monday",
@@ -60,61 +35,34 @@ function App() {
   
   const changeDayHandler =(item,dayofdate) => {
     if(item==='Monday' && dayofdate==='Monday') {
-      weatherPicsHandler()
      setChange(weather.list.slice(0, 8)) 
-     filterHandler()
     } else if (item==='Monday' && dayofdate==='Sunday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(8, 16)) 
-      filterHandler()
     } else if (item==='Tuesday' && dayofdate==='Tuesday') {
       setChange(weather.list.slice(0, 8)) 
-      filterHandler()
       weatherPicsHandler()
     } else if (item==='Tuesday' && dayofdate==='Monday') {
-      weatherPicsHandler()
-      setChange(weather.list.slice(8, 16))
-      filterHandler() 
+      setChange(weather.list.slice(8, 16)) 
     } else if (item==='Wednesday' && dayofdate==='Wednesday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(0, 8)) 
-      filterHandler()
     } else if (item==='Wednesday' && dayofdate==='Tuesday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(8, 16)) 
-      filterHandler()
     } else if (item==='Thursday' && dayofdate==='Thursday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(0, 8)) 
-      filterHandler()
     } else if (item==='Thursday' && dayofdate==='Wednesday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(8, 16)) 
-      filterHandler()
     } else if (item==='Friday' && dayofdate==='Friday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(0, 8)) 
-      filterHandler()
     } else if (item==='Friday' && dayofdate==='Thursday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(8, 16)) 
-      filterHandler()
     } else if (item==='Saturday' && dayofdate==='Saturday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(0, 8)) 
-      filterHandler()
     } else if (item==='Saturday' && dayofdate==='Friday') {
-      weatherPicsHandler()
-      setChange(weather.list.slice(8, 16))
-      filterHandler() 
-    } else if (item==='Sunday' && dayofdate==='Sunday') {
-      weatherPicsHandler()
-      setChange(weather.list.slice(0, 8)) 
-      filterHandler()
-    } else if (item==='Sunday' && dayofdate==='Saturday') {
-      weatherPicsHandler()
       setChange(weather.list.slice(8, 16)) 
-      filterHandler()
+    } else if (item==='Sunday' && dayofdate==='Sunday') {
+      setChange(weather.list.slice(0, 8)) 
+    } else if (item==='Sunday' && dayofdate==='Saturday') {
+      setChange(weather.list.slice(8, 16)) 
     }
   }
 
@@ -139,22 +87,16 @@ function App() {
 
  const WEATHERS=[
   {
-    main:'Clear',
+    main:'clear',
     image:clear
-  },
-  {
-    main:'Clouds',
-    image:clouds
   }
  ]
  
-const [bgPic, setPic] =useState("")
+const [bgPic, setPic] =useState('')
   
 const weatherPicsHandler =()=> {
   if(weather.list[0].weather[0].main==='Clear'){
     setPic(WEATHERS[0].image)
-  } else if (weather.list[0].weather[0].main==='Clouds') {
-    setPic(WEATHERS[1].image)
   }
 }
  
@@ -170,31 +112,23 @@ const weatherPicsHandler =()=> {
         setWeather(result);
         handlefiltereddays(dayofdate)
         console.log(result);
-        console.log(WEATHERS)
       });
   };
 
-  
-
   return (
-    <div style={{backgroundImage:`url(${bgPic})`,
-   backgroundRepeat:'no-repeat',
-   backgroundSize:'cover'
-    }} className="cardcontainer">
-      <div className="navbar">
-        
-        <input className="searchbar"
+    <div /*style={{backgroundImage:`url(${bgPic})`}}*/ className="cardcontainer">
+      <div>
+        {date}
+        {dayofdate}
+
+        <input
           onChange={(e) => setSearch(e.target.value)}
           type="text"
-          placeholder="Name a City"
+          placeholder="search"
         ></input>
-        <button className="search-button" onClick={searchPressed}>Search</button>
+        <button onClick={searchPressed}>Search</button>
       </div>
-      <div className="exact-date-container">
-          <div className="exact-date">{date}</div>
-          <div className="exact-date">{dayofdate}</div>
-        </div>
-      <div className="select-day-buttons-container"
+      <div
         style={{
           display: "flex",
           flexDirection: "row",
@@ -202,7 +136,7 @@ const weatherPicsHandler =()=> {
       >
         {today.map((item, index)=> {
           return(
-            <button /*style={filteredButton === true ? STYLES.active :STYLES.inactive}*/ className="select-day-buttons" onClick={()=> {
+            <button onClick={()=> {
               changeDayHandler(item,dayofdate)
             }} key={index}>{item}</button>
           )
@@ -233,5 +167,4 @@ const weatherPicsHandler =()=> {
   );
 }
 
-
-export default App;
+export default CardContainer;
